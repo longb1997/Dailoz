@@ -1,7 +1,8 @@
-import React, {ReactElement} from 'react';
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {COLOR} from '@theme';
+import React from 'react';
+import {StyleSheet, Text, TextProps, TextStyle} from 'react-native';
 
-interface CommonTextProps {
+interface CommonTextProps extends TextProps {
   children: React.ReactNode;
   textStyle?: TextStyle | TextStyle[];
 }
@@ -18,5 +19,6 @@ export const CommonText = React.memo(Screen);
 const styles = StyleSheet.create({
   commonStyle: {
     fontFamily: 'Hind Siliguri',
+    color: COLOR.TEXT,
   },
 });

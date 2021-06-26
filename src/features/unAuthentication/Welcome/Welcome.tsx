@@ -8,6 +8,7 @@ import styles from './Welcome.styles';
 
 const Screen = () => {
   const onPressLogin = () => NavigationService.navigate(APP_SCREEN.LOGIN);
+  const onPressSignUp = () => NavigationService.navigate(APP_SCREEN.REGISTER);
 
   return (
     <View style={styles.container}>
@@ -22,7 +23,9 @@ const Screen = () => {
         containerStyle={styles.loginButton}
         onPress={onPressLogin}
       />
-      <CommonText textStyle={styles.signUpButton}>Sign Up </CommonText>
+      <CommonText textStyle={styles.signUpButton} onPress={onPressSignUp}>
+        Sign Up
+      </CommonText>
     </View>
   );
 };

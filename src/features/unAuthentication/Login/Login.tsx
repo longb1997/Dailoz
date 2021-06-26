@@ -1,9 +1,16 @@
 import {images} from '@assets';
-import {CommonButton, CommonText, CommonTextInput} from '@components';
+import {
+  CommonButton,
+  CommonText,
+  CommonTextInput,
+  Divider,
+  Row,
+} from '@components';
 import {APP_SCREEN, NavigationService} from '@navigations';
+import {COLOR, FONT_SIZE} from '@theme';
 import {Formik} from 'formik';
-import React, {useState} from 'react';
-import {Pressable} from 'react-native';
+import React from 'react';
+import {Image, Pressable, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {connect} from 'react-redux';
@@ -16,14 +23,7 @@ const validate = Yup.object().shape({
   email: Yup.string().required('Email field is required'),
   password: Yup.string().required('Password field is required'),
 });
-const Screen = (props: any) => {
-  const {onLogin} = props;
-
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
-
+const Screen = () => {
   const onSignin = (values: any) => {
     console.log(values);
     // onLogin();
@@ -43,7 +43,7 @@ const Screen = (props: any) => {
           onSubmit={onSignin}>
           {({values, setFieldValue, submitForm}) => {
             return (
-              <>
+              <View>
                 <CommonText textStyle={styles.titleText}>Login</CommonText>
                 <CommonTextInput
                   placeholder="Email ID or Username"
@@ -75,11 +75,46 @@ const Screen = (props: any) => {
                   containerStyle={styles.loginButton}
                   onPress={submitForm}
                 />
-              </>
+
+                <Row rowStyle={{marginTop: 64, marginBottom: 30}}>
+                  <Divider />
+                  <CommonText
+                    textStyle={{
+                      marginHorizontal: 22,
+                      color: COLOR.PLACEHOLDER,
+                    }}>
+                    or with
+                  </CommonText>
+                  <Divider />
+                </Row>
+
+                <Row rowStyle={{justifyContent: 'center'}}>
+                  <Image source={images.google} style={{marginRight: 16}} />
+                  <Image source={images.facebook} />
+                </Row>
+              </View>
             );
           }}
         </Formik>
       </KeyboardAwareScrollView>
+      <CommonText
+        textStyle={{
+          textAlign: 'center',
+          justifyContent: 'flex-end',
+          fontSize: FONT_SIZE.NORMAL,
+        }}>
+        Don't have an account?
+        <CommonText
+          onPress={onForgotPassword}
+          textStyle={{
+            fontSize: FONT_SIZE.NORMAL,
+            color: COLOR.TEXT,
+            fontWeight: '600',
+          }}>
+          {' '}
+          Sign Up
+        </CommonText>
+      </CommonText>
     </SafeAreaView>
   );
 };
