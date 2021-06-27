@@ -95,7 +95,9 @@ export const TabView = ({
 const styles = StyleSheet.create({
   container: {
     marginBottom: 25,
-    borderRadius: 14,
     height: 60,
+    backgroundColor: '#FFF',
+    marginHorizontal: 30,
+    borderRadius: 20,
   },
 });
