@@ -5,4 +5,12 @@ export const images = {
   hide: require('../images/Hide.png'),
   google: require('../images/Google.png'),
   facebook: require('../images/Facebook.png'),
+  home: require('../images/Home.png'),
+  document: require('../images/Document.png'),
+  activity: require('../images/Activity.png'),
+  folder: require('../images/Folder.png'),
+  homeInactive: require('../images/Home-inactive.png'),
+  documentInactive: require('../images/Document-inactive.png'),
+  activityInactive: require('../images/Activity-inactive.png'),
+  folderInactive: require('../images/Folder-inactive.png'),
 };

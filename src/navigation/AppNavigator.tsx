@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {RootState} from '@store';
 import React from 'react';
 import FlashMessage from 'react-native-flash-message';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
 
 import {navigationRef} from './refNavigator';
@@ -13,10 +14,12 @@ function App() {
   const {token} = useSelector((x: RootState) => x.app);
 
   return (
-    <NavigationContainer ref={navigationRef}>
-      <RootNavigation token={token} />
-      <FlashMessage position="top" />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer ref={navigationRef}>
+        <RootNavigation token={token} />
+        <FlashMessage position="top" />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

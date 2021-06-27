@@ -6,6 +6,9 @@ export enum APP_SCREEN {
 
   AUTHORIZE = 'AUTHORIZE',
   HOME = 'HOME',
+  TASK = 'TASK',
+  GRAPHIC = 'GRAPHIC',
+  PROFILE = 'PROFILE',
 }
 
 export type UnAuthorizeParamsList = {
@@ -15,6 +18,9 @@ export type UnAuthorizeParamsList = {
 };
 export type AuthorizeParamsList = {
   [APP_SCREEN.HOME]: undefined;
+  [APP_SCREEN.TASK]: undefined;
+  [APP_SCREEN.GRAPHIC]: undefined;
+  [APP_SCREEN.PROFILE]: undefined;
 };
 export type RootStackParamList = {
   [APP_SCREEN.UN_AUTHORIZE]: UnAuthorizeParamsList;

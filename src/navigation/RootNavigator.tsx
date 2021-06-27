@@ -11,7 +11,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 export const RootNavigation = memo(({token}: {token: any}) => {
   return (
     <RootStack.Navigator headerMode={'none'} screenOptions={{}}>
-      {!token ? (
+      {token ? (
         <RootStack.Screen
           options={{animationTypeForReplace: 'pop', gestureEnabled: false}}
           name={APP_SCREEN.UN_AUTHORIZE}
